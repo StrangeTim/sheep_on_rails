@@ -15,6 +15,7 @@ gem 'pry-rails'
 gem "letter_opener"
 gem 'devise'
 gem 'pundit'
+gem 'paperclip'
 
 group :development do
   gem 'byebug'
