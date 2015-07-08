@@ -15,3 +15,7 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+
+$(function() {
+  $('.flash-wrapper').delay(1500).fadeOut(2000);
+});
