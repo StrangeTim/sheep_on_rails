@@ -1,0 +1,23 @@
+
+
+Photo sharing features to include:
+* Users create accounts
+* Users can add, edit, delete images (but only their own)
+* Users can add, edit, delete tags for all images
+* Users can tag each other in images (to start simple, you may choose to display a list of all the users in a drop-down menu when you add a tag)
+* Users have a profile page (users#show) with a list of all the photos they are tagged in
+* Users can "favorite" images; include image favorites on profile page
+* Users can add, edit, delete comments to images * Site administrators have access to all pages/actions
+
+
+
+
+Further exploration for either project
+You may consider adding in the following gems/features to either project:
+
+Use ActionMailer to send email notifications to users
+Use CanCanCan for user authorization
+Use Textacular for searching listings.
+Use the Kaminari or will_paginate for pagination.
+Use checkboxes to assign values (users to a photo, users to a property). To do this, go through the HABTM Checkboxes Railscast and implement it in your code. Make sure to read the second-to last comment on the comments page. Then, read the Rails API documentation on collection_check_boxes (follow the link to the base helper documentation!) and refactor your code.
+Add a recommendation engine for each user: based on what they've previously favorited, suggest other things for them to check out.

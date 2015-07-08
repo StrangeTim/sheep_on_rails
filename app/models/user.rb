@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+  has_many :images, :dependent => :destroy
+
+  accepts_nested_attributes_for :images, :reject_if => lambda{ |t| t['image'].nil? }
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
