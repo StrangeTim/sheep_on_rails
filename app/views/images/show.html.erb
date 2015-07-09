@@ -8,16 +8,18 @@
                                         data: {confirm: "Are you sure?",
                                                 method: 'delete'} %>
 <h3>Tag Someone:</h3>
-<!-- <%= form_tag tags_path do %>
-  <%= hidden_field_tag(:image_id, @image.id) %>
-  <%= select_tag "user_id", options_for_select(@select_options), class: 'form-control' %>
-  <br /><%= submit_tag "Add Tag" %>
-<% end %> -->
 
 <%= form_for @tag do |f| %>
   <%= f.hidden_field :image_id, value: @image.id %>
-  <!-- <%#= hidden_field_tag(:image_id, @image.id) %> -->
-
   <%= select_tag "user_id", options_for_select(@select_options), class: 'form-control' %>
   <%= f.submit 'Tag', class: "btn btn-xs btn-success" %>
 <% end %>
+
+<h3>Tags on this image:</h3>
+
+<ul>
+
+<% @image.tags.each do |tag| %>
+  <li><%= link_to tag.user.email, user_path(@user) %></li>
+<% end %>
+</ul>

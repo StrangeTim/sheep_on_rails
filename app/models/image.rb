@@ -1,5 +1,6 @@
 class Image < ActiveRecord::Base
   belongs_to :user
+  has_many :tags
   has_attached_file :photo, :styles => {:small => "100x100#", :large => "650x650>"}
   validates_attachment_presence :photo
   validates :name, presence: true

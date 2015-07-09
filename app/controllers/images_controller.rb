@@ -25,10 +25,25 @@ class ImagesController < ApplicationController
   end
 
   def show
-    @tag = Tag.new
     @image = Image.find(params[:id])
     @user = User.find(params[:user_id])
     @users = User.all
+    @tag = Tag.new
+    # @tagged_users = []
+    # tags.each do |tag|
+    #   if tag.image_id == @image.id
+    #     @tagged_users.push(tag.user_id)
+    #   end
+    # end
+    #
+    # @tagged_users.each_with_index do |user_id, index|
+    #   @users.each do |user|
+    #     if user_id == user.id
+    #       @tagged_users[index] = user.email
+    #     end
+    #   end
+    # end
+
     @select_options = []
     @users.each do |user|
       @select_options.push([user.email, user.id])
