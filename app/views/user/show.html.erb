@@ -3,13 +3,15 @@
 <%= image_tag @user.avatar.url(:thumb) %>
 
 <%= link_to 'Edit User', edit_user_registration_path(@current_user), class: 'btn btn-warning' %>
-
-<%= bootstrap_form_for([@user, @image]) do |f| %>
-  <%= f.text_field :name, placeholder: "Image Name" %>
-  <%= f.text_field :caption, placeholder: "What it is" %>
-  <%= f.file_field :photo %>
-  <%= f.submit %>
-<% end %>
+<span class='btn btn-success add_image'>Add Image</span>
+<div class='add_image_form'>
+  <%= bootstrap_form_for([@user, @image]) do |f| %>
+    <%= f.text_field :name, placeholder: "Image Name" %>
+    <%= f.text_field :caption, placeholder: "What it is" %>
+    <%= f.file_field :photo %>
+    <%= f.submit %>
+  <% end %>
+</div>
 <hr>
 
 <% if @images.any? %>
@@ -21,4 +23,10 @@
   <% end %>
 <% else %>
   You have not added any images yet.
+<% end %>
+<div class="clearfix"></div>
+<hr>
+Images that this user is tagged in:
+<% @user.tags.each do |tag| %>
+  <li><%= link_to tag.image.name, user_image_path(tag.user, tag.image) %></li>
 <% end %>

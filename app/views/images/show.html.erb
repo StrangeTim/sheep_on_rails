@@ -20,6 +20,6 @@
 <ul>
 
 <% @image.tags.each do |tag| %>
-  <li><%= link_to tag.user.email, user_path(@user) %></li>
+  <li><%= link_to tag.user.email, user_path(tag.user) %></li>
 <% end %>
 </ul>
