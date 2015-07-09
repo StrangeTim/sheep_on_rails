@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources 'user', only: [:show] do
     resources 'images', except: [:index]
   end
+  resources 'tags', only: [:new, :create, :destroy]
 end

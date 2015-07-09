@@ -17,9 +17,14 @@
 @import 'bootstrap-sprockets';
 
 body {
+  width: 100%;
   padding-top: 100px;
   color: white;
   background: #1D1D1D;
+}
+
+.container {
+  width: 100%;
 }
 
 input {
@@ -103,4 +108,21 @@ nav {
 
 .table-striped > tbody > tr:nth-of-type(odd) {
   background-color: #29264D;
+}
+
+.centered-image {
+  text-align: center;
+  width: 20%;
+}
+
+.centered-full-image {
+  text-align: center;
+  width: 100%;
+}
+
+.col-sm-2 {
+  margin-left: 11px;
+  margin-right: 11px;
+  padding: 1px;
+  border: 0px;
 }

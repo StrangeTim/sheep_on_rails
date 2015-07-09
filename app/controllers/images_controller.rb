@@ -25,7 +25,15 @@ class ImagesController < ApplicationController
   end
 
   def show
+    @tag = Tag.new
     @image = Image.find(params[:id])
+    @user = User.find(params[:user_id])
+    @users = User.all
+    @select_options = []
+    @users.each do |user|
+      @select_options.push([user.email, user.id])
+    end
+
   end
 
   def edit
@@ -34,12 +42,14 @@ class ImagesController < ApplicationController
 
   def destroy
     @image = Image.find(params[:id])
+    @user = User.find(params[:user_id])
     @image.destroy
     redirect_to user_path(current_user)
   end
 
   private
   def image_params
+    binding.pry
     params.require(:image).permit(:name, :caption, :photo, :user_id)
   end
 

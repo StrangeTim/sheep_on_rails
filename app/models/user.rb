@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   has_many :images, :dependent => :destroy
+  has_many :tags
+  has_many :tagged_images, class_name: 'Image', foreign_key: "image_id", through: :tags
 
   accepts_nested_attributes_for :images, :reject_if => lambda{ |t| t['image'].nil? }
 

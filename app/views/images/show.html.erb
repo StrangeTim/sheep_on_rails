@@ -1,0 +1,23 @@
+<div class="centered-full-image">
+  <%= image_tag @image.photo(:large) %>
+  <br>
+  <%= @image.caption %>
+</div>
+
+ <%= link_to "Delete Photo", user_image_path(@user, @image), class: "btn btn-danger",
+                                        data: {confirm: "Are you sure?",
+                                                method: 'delete'} %>
+<h3>Tag Someone:</h3>
+<!-- <%= form_tag tags_path do %>
+  <%= hidden_field_tag(:image_id, @image.id) %>
+  <%= select_tag "user_id", options_for_select(@select_options), class: 'form-control' %>
+  <br /><%= submit_tag "Add Tag" %>
+<% end %> -->
+
+<%= form_for @tag do |f| %>
+  <%= f.hidden_field :image_id, value: @image.id %>
+  <!-- <%#= hidden_field_tag(:image_id, @image.id) %> -->
+
+  <%= select_tag "user_id", options_for_select(@select_options), class: 'form-control' %>
+  <%= f.submit 'Tag', class: "btn btn-xs btn-success" %>
+<% end %>

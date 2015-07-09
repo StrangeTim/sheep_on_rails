@@ -10,13 +10,15 @@
   <%= f.file_field :photo %>
   <%= f.submit %>
 <% end %>
+<hr>
 
-<% if @images %>
+<% if @images.any? %>
   <% @images.each do |image| %>
-    <%= image_tag image.photo.url(:small) %>
+    <div class="col-sm-2 centered-image">
+      <%= link_to image_tag(image.photo), user_image_path(@user, image), alt: image.caption, class: 'thumbnail' %>
+      <%= image.name %>
+    </div>
   <% end %>
 <% else %>
-  <p>
-    You have no images yet
-  </p>
+  You have not added any images yet.
 <% end %>
